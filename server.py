@@ -68,7 +68,7 @@ async def proxy_ocr(request: OCRRequest):
         
         print(f"Sending request to Pipeline Service at {PADDLE_SERVICE_URL}...")
         
-        async with httpx.AsyncClient(timeout=180.0) as client:
+        async with httpx.AsyncClient(timeout=300.0) as client:
             resp = await client.post(
                 PADDLE_SERVICE_URL,
                 json=payload,
