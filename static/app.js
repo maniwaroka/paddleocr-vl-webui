@@ -3,6 +3,10 @@ const API_BASE = '/api';
 let availableModel = 'PaddleOCR-VL-Pipeline'; // Default model name for UI
 const PROMPT_TEXT = ""; // Not used in pipeline mode
 
+//pdf dpi set
+const DPI = 300;                       // 想用的 dpi
+const pdfscale = DPI / 72;                // pdf.js 默认 72 dpi
+
 // State
 let processQueue = [];
 let isProcessing = false;
@@ -140,7 +144,7 @@ async function processPDF(file) {
     
     for (let i = 1; i <= pdf.numPages; i++) {
         const page = await pdf.getPage(i);
-        const viewport = page.getViewport({ scale: 2.0 }); // Scale up for better OCR
+        const viewport = page.getViewport({ pdfscale }); // Scale up for better OCR
         const canvas = document.createElement('canvas');
         const context = canvas.getContext('2d');
         canvas.height = viewport.height;
