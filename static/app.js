@@ -4,7 +4,7 @@ let availableModel = 'PaddleOCR-VL-Pipeline'; // Default model name for UI
 const PROMPT_TEXT = ""; // Not used in pipeline mode
 
 //pdf dpi set
-const DPI = 300;                       // 想用的 dpi
+const DPI = 150;                       // 想用的 dpi
 const pdfscale = DPI / 72;                // pdf.js 默认 72 dpi
 
 // State
